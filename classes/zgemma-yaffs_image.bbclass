@@ -9,7 +9,7 @@ do_image_zgemmayaffs[depends] = " \
 
 IMAGE_CMD_zgemmayaffs () {
 	mkdir -p ${WORKDIR}/bootoptions
-	echo "imageurl https://raw.githubusercontent.com/oe-alliance/bootmenu/raw/master/${MACHINE}/images" > ${WORKDIR}/bootoptions/bootmenu.conf
+	echo "imageurl https://raw.githubusercontent.com/oe-alliance/bootmenu/master/${MACHINE}/images" > ${WORKDIR}/bootoptions/bootmenu.conf
 	echo "# " >> ${WORKDIR}/bootoptions/bootmenu.conf
 	echo "iface eth0" >> ${WORKDIR}/bootoptions/bootmenu.conf
 	echo "dhcp yes" >> ${WORKDIR}/bootoptions/bootmenu.conf
