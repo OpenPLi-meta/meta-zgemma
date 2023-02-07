@@ -21,6 +21,7 @@ MACHINE_ESSENTIAL_EXTRA_RRECOMMENDS = "\
 	${@bb.utils.contains('MACHINE_FEATURES', 'hisil-3798mv200', 'kernel-module-mali-3798mv200 zgemma-mali-3798mv200' , '', d)} \
 	${@bb.utils.contains('MACHINE_FEATURES', 'hisil-3798mv310', 'kernel-module-mali-3798mv310 zgemma-mali-3798mv310' , '', d)} \
 	${@bb.utils.contains('MACHINE_FEATURES', 'wol', 'zgemma-ethwol' , '', d)} \
+	${@bb.utils.contains('MACHINE_FEATURES', 'v3d-nxpl', 'zgemma-v3ddriver-${MACHINE}' , '', d)} \
 	\
 	firmware-mt7601u \
 	firmware-rtl8188eu \
