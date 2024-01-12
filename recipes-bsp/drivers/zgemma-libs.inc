@@ -34,7 +34,7 @@ do_install() {
 do_package_qa() {
 }
 
-FILES_${PN} = "${libdir}/hisilicon/*"
-FILES_${PN}-dev = ""
+FILES:${PN} = "${libdir}/hisilicon/*"
+FILES:${PN}-dev = ""
 
-INSANE_SKIP_${PN} += "ldflags already-stripped dev-so"
+INSANE_SKIP:${PN} += "ldflags already-stripped dev-so"

@@ -17,7 +17,7 @@ inherit update-rc.d
 do_configure[noexec] = "1"
 
 # Generate a simplistic standard init script
-do_compile_append () {
+do_compile:append () {
 	cat > suspend << EOF
 #!/bin/sh
 
@@ -33,7 +33,7 @@ mount -t sysfs sys /sys
 EOF
 }
 
-do_install_append() {
+do_install:append() {
 	install -d ${D}${sysconfdir}/init.d
 	install -d ${D}${bindir}
 	install -m 0755 ${S}/suspend ${D}${sysconfdir}/init.d
@@ -43,6 +43,6 @@ do_install_append() {
 do_package_qa() {
 }
 
-FILES_${PN} += " ${bindir} ${sysconfdir}/init.d"
+FILES:${PN} += " ${bindir} ${sysconfdir}/init.d"
 
-INSANE_SKIP_${PN} += "already-stripped"
+INSANE_SKIP:${PN} += "already-stripped"

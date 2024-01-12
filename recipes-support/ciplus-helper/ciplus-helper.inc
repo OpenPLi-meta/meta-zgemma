@@ -13,7 +13,7 @@ S = "${WORKDIR}"
 INITSCRIPT_NAME = "ciplushelper"
 INITSCRIPT_PARAMS = "defaults 50"
 
-FILES_${PN} += "${bindir} ${sysconfdir}"
+FILES:${PN} += "${bindir} ${sysconfdir}"
 
 inherit update-rc.d
 
@@ -31,4 +31,4 @@ do_install() {
 do_package_qa() {
 }
 
-INSANE_SKIP_${PN} += "ldflags already-stripped"
+INSANE_SKIP:${PN} += "ldflags already-stripped"
