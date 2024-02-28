@@ -11,6 +11,7 @@ SRC_URI = "http://www.zgemma.org/downloads/${MACHINE}-drivers${VER}-${PV}.zip;na
 S = "${WORKDIR}"
 
 INHIBIT_PACKAGE_STRIP = "1"
+INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 
 inherit module
 
@@ -18,13 +19,15 @@ FILES:${PN} += "${sysconfdir}/modprobe.d/${MACHINE}.conf ${sysconfdir}/modules-l
 
 do_compile() {
 }
+do_populate_sysroot() {
+}
 
 do_install() {
 	install -d ${D}/lib/modules/${KV}/extra
-	install -d ${D}${sysconfdir}/modprobe.d
+	install -d ${D}/${sysconfdir}/modprobe.d
 	install -m 0755 ${S}/*.ko ${D}${base_libdir}/modules/${KV}/extra
 	for i in ${MACHINE}_1 ${MACHINE}_2 ${MACHINE}_3 ${MACHINE}_4; do
-		echo blacklist $i >> ${D}${sysconfdir}/modprobe.d/${MACHINE}.conf
+		echo blacklist $i >> ${D}/${sysconfdir}/modprobe.d/${MACHINE}.conf
 	done
 }
 
