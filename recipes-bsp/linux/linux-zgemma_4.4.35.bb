@@ -32,6 +32,7 @@ SRC_URI = "http://www.zgemma.org/downloads/linux-${PV}-${SRCDATE}-${ARCH}.tar.gz
 	file://initramfs-subdirboot.cpio.gz;unpack=0 \
 	file://findkerneldevice.sh \
 	file://make-yyloc-declaration-extern-4.4.35.patch \
+	file://fix-build-with-binutils-2.41.patch \
 "
 
 SRC_URI:append_h9 = " \
