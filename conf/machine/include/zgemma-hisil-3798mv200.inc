@@ -52,7 +52,7 @@ IMAGE_CMD:ubifs:prepend = " \
 
 IMAGE_CMD:ubi:append = " \
 	mkdir -p ${IMGDEPLOYDIR}/${IMAGEDIR}/${MACHINE}; \
-	cp ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.ubi ${IMGDEPLOYDIR}/${IMAGEDIR}/${MACHINE}/rootfs.ubi; \
+	cp ${IMGDEPLOYDIR}/${IMAGE_NAME}.ubi ${IMGDEPLOYDIR}/${IMAGEDIR}/${MACHINE}/rootfs.ubi; \
 	cp ${DEPLOY_DIR_IMAGE}/uImage ${IMGDEPLOYDIR}/${IMAGEDIR}/${MACHINE}/uImage; \
 	cp ${DEPLOY_DIR_IMAGE}/zgemma-partitions-${MACHINE}/fastboot.bin ${IMGDEPLOYDIR}/${IMAGEDIR}/fastboot.bin; \
 	cp ${DEPLOY_DIR_IMAGE}/zgemma-partitions-${MACHINE}/update_bootargs_${MACHINE}.bin ${IMGDEPLOYDIR}/${IMAGEDIR}/bootargs.bin; \
@@ -71,9 +71,9 @@ IMAGE_CMD:ubi:append = " \
 IMAGE_CMD:zgemmafastboot8gb:append = " \
 	mkdir -p ${IMGDEPLOYDIR}/${IMAGEDIR}/${MACHINE}; \
 	mkdir -p ${IMGDEPLOYDIR}/${IMAGEDIRRECOVERY}/${MACHINE}; \
-	bzip2 ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.tar; \
+	bzip2 ${IMGDEPLOYDIR}/${IMAGE_NAME}.tar; \
 	cp ${DEPLOY_DIR_IMAGE}/uImage ${IMGDEPLOYDIR}/${IMAGEDIR}/${MACHINE}/uImage; \
-	cp ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.tar.bz2 ${IMGDEPLOYDIR}/${IMAGEDIR}/${MACHINE}/rootfs.tar.bz2; \
+	cp ${IMGDEPLOYDIR}/${IMAGE_NAME}.tar.bz2 ${IMGDEPLOYDIR}/${IMAGEDIR}/${MACHINE}/rootfs.tar.bz2; \
 	echo "${IMAGEVERSION}" > ${IMGDEPLOYDIR}/${IMAGEDIR}/${MACHINE}/imageversion; \
 	echo "${IMAGEVERSION}_emmc.zip" > ${IMGDEPLOYDIR}/${IMAGEDIR}/unforce_${MACHINE}.txt; \
 	echo "Rename unforce_${MACHINE}.txt to force_${MACHINE}.txt and move it to the root of your usb-stick" > ${IMGDEPLOYDIR}/${IMAGEDIR}/force_${MACHINE}_READ.ME; \
@@ -92,7 +92,7 @@ IMAGE_CMD:zgemmafastboot8gb:append = " \
 	cd ${IMGDEPLOYDIR}/${IMAGEDIRRECOVERY}; \
 	zip -r ../${DISTRO_NAME}-${DISTRO_VERSION}-${MACHINE}_recovery_emmc.zip *; \
 	cd ..; \
-	cp ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.userdata.ext4 ${IMGDEPLOYDIR}/${IMAGEDIRRECOVERY}/${MACHINE}/userdata.ext4; \
+	cp ${IMGDEPLOYDIR}/${IMAGE_NAME}.userdata.ext4 ${IMGDEPLOYDIR}/${IMAGEDIRRECOVERY}/${MACHINE}/userdata.ext4; \
 	cp ${DEPLOY_DIR_IMAGE}/uImage ${IMGDEPLOYDIR}/${IMAGEDIRRECOVERY}/${MACHINE}/uImage; \
 	cd ${IMGDEPLOYDIR}/${IMAGEDIRRECOVERY}; \
 	zip -r ../${DISTRO_NAME}-${DISTRO_VERSION}-${MACHINE}_full_recovery_emmc.zip *; \
