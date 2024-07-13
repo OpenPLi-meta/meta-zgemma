@@ -22,6 +22,7 @@ SRC_URI = "http://www.zgemma.org/downloads/linux-${KERNEL_RELEASE}-${SRCDATE}-ar
 	file://findkerneldevice.sh \
 	file://0101-hi3716mv430-dts-move-aon-gpio7-gpio5.patch \
 	file://make-yyloc-declaration-extern-4.4.176.patch \
+	file://fix-build-with-binutils-2.41.patch \
 "
 
 # By default, kernel.bbclass modifies package names to allow multiple kernels
