@@ -17,7 +17,7 @@ IMAGE_CMD:zgemmafastboot8gb () {
 	if [ $ROOTFS_SIZE -lt $MIN_COUNT ]; then
 		eval COUNT=\"$MIN_COUNT\"
 	fi
-	dd if=/dev/zero of=${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.ext4 seek=$ROOTFS_SIZE count=$COUNT bs=1024
+	dd if=/dev/zero of=${IMGDEPLOYDIR}/${IMAGE_NAME}.ext4 seek=$ROOTFS_SIZE count=$COUNT bs=1024
 	mkfs.ext4 -F ${IMGDEPLOYDIR}/${IMAGE_NAME}.ext4 -d ${WORKDIR}/rootfs
 	dd if=/dev/zero of=${WORKDIR}/bootoptions.img bs=1024 count=${BOOTOPTIONS_PARTITION_SIZE}
 	mkfs.msdos -S 512 ${WORKDIR}/bootoptions.img
@@ -60,5 +60,5 @@ IMAGE_CMD:zgemmafastboot8gb () {
 	cp ${WORKDIR}/bootoptions.img ${IMGDEPLOYDIR}/bootoptions.img
 	echo boot-recovery > ${WORKDIR}/misc-boot.img
 	cp ${WORKDIR}/misc-boot.img ${IMGDEPLOYDIR}/misc-boot.img
-	ext2simg ${IMGDEPLOYDIR}/${IMAGE_NAME}.ext4 ${IMGDEPLOYDIR}/${IMAGE_NAME}${IMAGE_NAME_SUFFIX}.userdata.ext4
+	ext2simg ${IMGDEPLOYDIR}/${IMAGE_NAME}.ext4 ${IMGDEPLOYDIR}/${IMAGE_NAME}.userdata.ext4
 }
