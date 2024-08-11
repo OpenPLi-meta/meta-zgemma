@@ -15,6 +15,7 @@ PREFERRED_PROVIDER_virtual/libgl ?= "mesa"
 PREFERRED_PROVIDER_virtual/mesa ?= "mesa"
 PREFERRED_PROVIDER_virtual/blindscan-dvbc ?= "zgemma-dvb-modules-${MACHINE}"
 PREFERRED_PROVIDER_virtual/blindscan-dvbs ?= "zgemma-dvb-modules-${MACHINE}"
+PREFERRED_PROVIDER_virtual/kodi ?= "stb-kodi-${MACHINE}"
 
 require conf/machine/include/arm/armv7a/tune-cortexa15.inc
 require conf/machine/include/zgemma-essential.inc
