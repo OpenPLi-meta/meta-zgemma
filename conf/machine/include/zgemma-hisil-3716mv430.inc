@@ -11,7 +11,7 @@ PREFERRED_PROVIDER_virtual/kernel ?= "linux-zgemma"
 PREFERRED_PROVIDER_virtual/gstreamer1.0-dvbmediasink ?= "gstreamer1.0-plugin-dvbmediasink"
 PREFERRED_PROVIDER_virtual/enigma2-mediaservice ?= "enigma2-plugin-systemplugins-servicehisilicon"
 
-require conf/machine/include/tune-cortexa7.inc
+require conf/machine/include/arm/armv7a/tune-cortexa7.inc
 require conf/machine/include/zgemma-essential.inc
 
 # E2 OSD settings
