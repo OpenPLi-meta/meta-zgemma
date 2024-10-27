@@ -56,7 +56,7 @@ KERNEL_OUTPUT:mipsel = "vmlinux.gz"
 KERNEL_OUTPUT_DIR:mipsel = "."
 KERNEL_CONSOLE:mipsel = "null"
 SERIAL_CONSOLE:mipsel ?= ""
-KERNEL_EXTRA_ARGS:mipsel = "EXTRA_CFLAGS=-Wno-attribute-alias"
+KERNEL_EXTRA_ARGS:mipsel = "EXTRA_CFLAGS+=-Wno-attribute-alias EXTRA_CFLAGS+=-Wno-address EXTRA_CFLAGS+=-Wno-array-bounds"
 
 pkg_postinst:kernel-image:mipsel() {
 	if [ "x$D" == "x" ]; then
