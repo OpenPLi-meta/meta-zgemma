@@ -6,7 +6,7 @@ VER ?= "${@bb.utils.contains('TARGET_ARCH', 'aarch64', '64' , '', d)}"
 
 PV = "${KV}-${SRCDATE}"
 
-SRC_URI = "http://www.zgemma.org/downloads/${MACHINE}-drivers${VER}-${PV}.zip;name=${ARCH}"
+SRC_URI = "http://downloads.openpli.org/archive/zgemma/${MACHINE}-drivers${VER}-${PV}.zip;name=${ARCH}"
 
 S = "${WORKDIR}"
 

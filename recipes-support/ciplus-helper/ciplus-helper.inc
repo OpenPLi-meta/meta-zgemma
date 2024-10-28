@@ -3,7 +3,7 @@ LICENSE = "CLOSED"
 PR = "${SRCDATE}"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-SRC_URI = "http://www.zgemma.org/downloads/ciplushelper-${HICHIPSET}-${SRCDATE}.zip \
+SRC_URI = "http://downloads.openpli.org/archive/zgemma/ciplushelper-${HICHIPSET}-${SRCDATE}.zip \
 	file://ciplushelper.sh \
 	file://cicert.zip \
 	"
