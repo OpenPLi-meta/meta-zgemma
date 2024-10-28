@@ -24,7 +24,7 @@ PKG_${KERNEL_PACKAGE_NAME}-image = "kernel-image"
 RPROVIDES_${KERNEL_PACKAGE_NAME}-base = "kernel-${KERNEL_VERSION}"
 RPROVIDES_${KERNEL_PACKAGE_NAME}-image = "kernel-image-${KERNEL_VERSION}"
 
-SRC_URI += "http://www.zgemma.org/downloads/linux-${PV}-${ARCH}.tar.gz;name=${ARCH} \
+SRC_URI += "http://downloads.openpli.org/archive/zgemma/linux-${PV}-${ARCH}.tar.gz;name=${ARCH} \
 	file://defconfig \
 	file://0005-xbox-one-tuner-4.10.patch \
 	file://0006-dvb-media-tda18250-support-for-new-silicon-tuner.patch \

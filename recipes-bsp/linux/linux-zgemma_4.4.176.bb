@@ -16,7 +16,7 @@ MACHINE_KERNEL_PR_append = ".5"
 SRC_URI[md5sum] = "261fd4b3d11cf2e593abb1706033fe1c"
 SRC_URI[sha256sum] = "6448ea7093cea5e30fcd9ceea357eee3ad98d1b3e7a2367a41fae990f39468e8"
 
-SRC_URI = "http://www.zgemma.org/downloads/linux-${KERNEL_RELEASE}-${SRCDATE}-arm.tar.gz \
+SRC_URI = "http://downloads.openpli.org/archive/zgemma/linux-${KERNEL_RELEASE}-${SRCDATE}-arm.tar.gz \
 	file://defconfig \
 	file://initramfs-subdirboot.cpio.gz;unpack=0 \
 	file://findkerneldevice.sh \
