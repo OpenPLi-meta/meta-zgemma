@@ -1,7 +1,8 @@
 KV = "4.4.35"
 SRCDATE = "20201118"
 
-PROVIDES = "virtual/blindscan-dvbc virtual/blindscan-dvbs"
+PROVIDES += "virtual/blindscan-dvbc virtual/blindscan-dvbs"
+RPROVIDES:${PN} += "virtual-blindscan-dvbc virtual-blindscan-dvbs"
 
 require zgemma-dvb-himodules.inc
 
