@@ -34,6 +34,7 @@ SRC_URI:append:mipsel = " \
 	file://0001-add-dmx-source-timecode.patch \
 	file://0002-nand-ecc-strength-and-bitflip.patch \
 	file://sdio-pinmux.patch \
+	file://fix-never-be-null_outside-array-bounds-gcc-12.patch \
 	"
 
 SRC_URI:append:arm = " \
@@ -56,7 +57,7 @@ KERNEL_OUTPUT:mipsel = "vmlinux.gz"
 KERNEL_OUTPUT_DIR:mipsel = "."
 KERNEL_CONSOLE:mipsel = "null"
 SERIAL_CONSOLE:mipsel ?= ""
-KERNEL_EXTRA_ARGS:mipsel = "EXTRA_CFLAGS+=-Wno-attribute-alias EXTRA_CFLAGS+=-Wno-address EXTRA_CFLAGS+=-Wno-array-bounds"
+KERNEL_EXTRA_ARGS:mipsel = "EXTRA_CFLAGS=-Wno-attribute-alias"
 
 pkg_postinst:kernel-image:mipsel() {
 	if [ "x$D" == "x" ]; then
