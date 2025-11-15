@@ -29,6 +29,7 @@ SRC_URI += "http://downloads.openpli.org/archive/zgemma/linux-${PV}-${ARCH}.tar.
 	file://0005-xbox-one-tuner-4.10.patch \
 	file://0006-dvb-media-tda18250-support-for-new-silicon-tuner.patch \
 	file://make-yyloc-declaration-extern-4.10.12.patch \
+	file://noforce_correct_pointer_usage.patch \
 	"
 
 SRC_URI_append_mipsel = " \
