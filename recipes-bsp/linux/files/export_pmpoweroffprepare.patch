@@ -9,4 +9,4 @@ index bd30a97..a6903bf 100644
 +EXPORT_SYMBOL(pm_power_off_prepare);
  
  /**
-* emergency_restart - reboot the system
+  *	emergency_restart - reboot the system
