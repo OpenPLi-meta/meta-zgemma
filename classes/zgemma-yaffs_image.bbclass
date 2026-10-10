@@ -1,4 +1,9 @@
-inherit image_types
+inherit image_types zgemma-legacy-deploy
+
+# Migrate the unowned bootoptions file left by earlier image builds.
+ZGEMMA_LEGACY_DEPLOY_FILES = "${MACHINE}/bootoptions.yaffs"
+do_image_complete[prefuncs] += "zgemma_cleanup_legacy_deploy"
+do_image_complete_setscene[prefuncs] += "zgemma_cleanup_legacy_deploy"
 
 ZGEMMA_YAFFS_PAGE_SIZE ?= "4k"
 

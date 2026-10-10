@@ -15,6 +15,10 @@ INHIBIT_PACKAGE_STRIP = "1"
 # Disable anything auto depending on zgemma-libs
 EXCLUDE_FROM_SHLIBS = "1"
 
+# The vendor bundle is excluded from shared-library dependency generation.
+# Declare the system libraries used by its prebuilt ELF files explicitly.
+RDEPENDS_${PN} += "glibc libgcc libstdc++ zlib libcurl"
+
 # The driver is a set of binary libraries to install
 # there's nothing to configure or compile
 do_configure[noexec] = "1"
@@ -31,13 +35,7 @@ do_install() {
 	fi
 }
 
-do_package_qa() {
-}
-
 FILES_${PN} = "${libdir}/hisilicon/*"
 FILES_${PN}-dev = ""
 
 INSANE_SKIP_${PN} += "ldflags already-stripped dev-so"
-
-# The H8 SE vendor bundle uses these system libraries.
-RDEPENDS_${PN}_append_h8se = " glibc libgcc libstdc++ zlib libcurl"

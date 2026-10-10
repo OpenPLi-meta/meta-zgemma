@@ -41,9 +41,10 @@ do_install_append() {
 	install -m 0755 ${S}/turnoff_power ${D}${bindir}
 }
 
-do_package_qa() {
-}
-
 FILES_${PN} += " ${bindir} ${sysconfdir}/init.d"
 
-INSANE_SKIP_${PN} += "already-stripped"
+# The vendor power-off executable cannot be relinked with OE linker flags.
+INSANE_SKIP_${PN} += "already-stripped ldflags"
+
+# Vendor libraries are excluded from automatic shared-library dependencies.
+RDEPENDS_${PN} += "zgemma-libs-${HICHIPSET}"
