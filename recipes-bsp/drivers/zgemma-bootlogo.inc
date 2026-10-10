@@ -16,7 +16,11 @@ do_configure[nostamp] = "1"
 
 do_deploy() {
     install -d ${DEPLOY_DIR_IMAGE}/zgemma-partitions-${MACHINE}/${MACHINE}
-    install -m 0755 ${WORKDIR}/logo_${MACHINE}.img ${DEPLOY_DIR_IMAGE}/zgemma-partitions-${MACHINE}/${MACHINE}/logo.img
+    if [ -f ${WORKDIR}/logo_${MACHINE}.img ]; then
+        install -m 0755 ${WORKDIR}/logo_${MACHINE}.img ${DEPLOY_DIR_IMAGE}/zgemma-partitions-${MACHINE}/${MACHINE}/logo.img
+    else
+        install -m 0755 ${WORKDIR}/logo.img ${DEPLOY_DIR_IMAGE}/zgemma-partitions-${MACHINE}/${MACHINE}/logo.img
+    fi
 }
 
 addtask deploy before do_build after do_install

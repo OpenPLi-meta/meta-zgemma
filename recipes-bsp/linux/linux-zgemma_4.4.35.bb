@@ -6,7 +6,7 @@ VER ?= "${@bb.utils.contains('TARGET_ARCH', 'aarch64', '64' , '', d)}"
 
 KERNEL_RELEASE = "4.4.35"
 SRCDATE = "20200508"
-COMPATIBLE_MACHINE = "^h9$|^h9se$|^h9combo$|^h9combose$|^h10$|^i55plus$|^i55se$"
+COMPATIBLE_MACHINE = "^h8se$|^h9$|^h9se$|^h9combo$|^h9combose$|^h10$|^i55plus$|^i55se$"
 
 inherit kernel machine_kernel_pr
 
@@ -151,4 +151,26 @@ pkg_postinst_kernel-image() {
 		fi
 	fi
 	true
+}
+
+SRC_URI_append_h8se = " file://0001-mmc-switch-1.8V.patch"
+FILES_${KERNEL_PACKAGE_NAME}-image_h8se = " "
+
+pkg_postinst_kernel-image_h8se() {
+    if [ -z "$D" ]; then
+        MTD_DEVICE="$(grep -m1 '"kernel"' /proc/mtd | cut -d: -f1)"
+
+        if [ -z "$MTD_DEVICE" ]; then
+            echo "Kernel MTD partition not found"
+            exit 1
+        fi
+
+        KERNEL_FILE="/${KERNEL_IMAGEDEST}/${KERNEL_IMAGETYPE}"
+
+        if [ -f "$KERNEL_FILE" ]; then
+            flash_eraseall "/dev/$MTD_DEVICE" &&
+            nandwrite -p "/dev/$MTD_DEVICE" "$KERNEL_FILE"
+        fi
+    fi
+    true
 }

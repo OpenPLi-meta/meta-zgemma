@@ -2,7 +2,15 @@ SRCDATE = "20200916"
 
 require zgemma-fastboot.inc
 
-SRC_URI[md5sum] = "ec44347531c17802e9b0346121e6ea13"
-SRC_URI[sha256sum] = "ba7caebea61a512f598ac60ceafa151252e73452e02aaf7a617282b4d2d8e7de"
+SRC_URI[md5sum] = "${FASTBOOT_MD5}"
+SRC_URI[sha256sum] = "${FASTBOOT_SHA256}"
 
-COMPATIBLE_MACHINE = "^h9$|^h9se$|^h9combo$|^h9combose$|^h10$|^i55plus$|^i55se$"
+COMPATIBLE_MACHINE = "^h8se$|^h9$|^h9se$|^h9combo$|^h9combose$|^h10$|^i55plus$|^i55se$"
+
+FASTBOOT_MD5 = "ec44347531c17802e9b0346121e6ea13"
+FASTBOOT_MD5_h8se = "76b8bdb0cdb722194f3d5809cf88bce9"
+
+FASTBOOT_SHA256 = "ba7caebea61a512f598ac60ceafa151252e73452e02aaf7a617282b4d2d8e7de"
+FASTBOOT_SHA256_h8se = "c012be4b2636170da4d47bb47952835e94a3f6717beaada8768b47ae49742d0e"
+
+SRCDATE_h8se = "20261009"

@@ -38,3 +38,6 @@ FILES_${PN} = "${libdir}/hisilicon/*"
 FILES_${PN}-dev = ""
 
 INSANE_SKIP_${PN} += "ldflags already-stripped dev-so"
+
+# The H8 SE vendor bundle uses these system libraries.
+RDEPENDS_${PN}_append_h8se = " glibc libgcc libstdc++ zlib libcurl"
