@@ -1,5 +1,9 @@
 inherit image_types
 
+ZGEMMA_YAFFS_PAGE_SIZE ?= "4k"
+
+IMAGE_TYPEDEP_ubi += "zgemmayaffs"
+
 do_image_zgemmayaffs[depends] = " \
 	e2fsprogs-native:do_populate_sysroot \
 	dosfstools-native:do_populate_sysroot \
@@ -20,6 +24,7 @@ IMAGE_CMD_zgemmayaffs () {
 	echo "#netmask 255.255.255.0" >> ${WORKDIR}/bootoptions/bootmenu.conf
 	echo "#gateway 192.168.1.1" >> ${WORKDIR}/bootoptions/bootmenu.conf
 	echo "#dns 192.168.1.1" >> ${WORKDIR}/bootoptions/bootmenu.conf
-	mkyaffs ${WORKDIR}/bootoptions/ ${WORKDIR}/bootoptions.yaffs 4k -b=750
-	cp ${WORKDIR}/bootoptions.yaffs ${IMGDEPLOYDIR}/bootoptions.yaffs
+	mkyaffs ${WORKDIR}/bootoptions/ ${WORKDIR}/bootoptions.yaffs ${ZGEMMA_YAFFS_PAGE_SIZE}
+	mkdir -p ${IMGDEPLOYDIR}/zgemma-partitions-${MACHINE}/${MACHINE}
+	cp ${WORKDIR}/bootoptions.yaffs ${IMGDEPLOYDIR}/zgemma-partitions-${MACHINE}/${MACHINE}/bootoptions.yaffs
 }

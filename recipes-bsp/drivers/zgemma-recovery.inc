@@ -14,7 +14,15 @@ S = "${WORKDIR}"
 ALLOW_EMPTY_${PN} = "1"
 do_configure[nostamp] = "1"
 
+# Bootmenu with emmc flash expects recovery.img; the USB updater expects recovery.bin.
+
 do_deploy() {
+    install -d ${DEPLOY_DIR_IMAGE}/zgemma-partitions-${MACHINE}/${MACHINE}
+    install -m 0755 ${WORKDIR}/recovery-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/zgemma-partitions-${MACHINE}/${MACHINE}/recovery.bin
+    install -m 0755 ${WORKDIR}/recovery-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/zgemma-partitions-${MACHINE}/${MACHINE}/recovery.img
+}
+
+do_deploy:nand() {
     install -d ${DEPLOY_DIR_IMAGE}/zgemma-partitions-${MACHINE}/${MACHINE}
     install -m 0755 ${WORKDIR}/recovery-${MACHINE}.bin ${DEPLOY_DIR_IMAGE}/zgemma-partitions-${MACHINE}/${MACHINE}/recovery.bin
 }
