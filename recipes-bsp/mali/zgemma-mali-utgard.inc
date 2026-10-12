@@ -44,9 +44,6 @@ do_install_append() {
     && ln -sf libgbm.so.1 libgbm.so)
 }
 
-do_package_qa() {
-}
-
 FILES_${PN} = "${libdir} /etc/udev/rules.d/50-mali.rules"
 FILES_${PN}-dev = "${incdir}"
 
