@@ -17,7 +17,7 @@ EXCLUDE_FROM_SHLIBS = "1"
 
 # The vendor bundle is excluded from shared-library dependency generation.
 # Declare the system libraries used by its prebuilt ELF files explicitly.
-RDEPENDS_${PN} += "glibc libgcc libstdc++ zlib libcurl"
+RDEPENDS_${PN} += "glibc libgcc libstdc++ zlib libcurl libcrypto-compat"
 
 # The driver is a set of binary libraries to install
 # there's nothing to configure or compile
